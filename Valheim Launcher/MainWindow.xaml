@@ -1,0 +1,146 @@
+﻿<Window x:Class="Valheim_Launcher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Valheim_Launcher"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="479" Width="701" WindowStyle="None" AllowsTransparency="True" Cursor="Cross" Foreground="{x:Null}" Background="{x:Null}">
+    <Grid Height="NaN" Width="NaN" Margin="0,10,37,-18" Mouse.MouseDown="Grid_MouseDown">
+        <Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush TileMode="None" ImageSource="/background.png"/>
+        </Grid.Background>
+        <Button Name="Start" VerticalAlignment="Top" Height="257" Click="Start_Click" BorderThickness="0,0,0,0" HorizontalAlignment="Left" Width="300" Margin="176,0,0,0">
+            <Button.Background>
+                <ImageBrush ImageSource="/startbutton.png" Stretch="UniformToFill" />
+            </Button.Background>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Grid Margin="0,0,0,0" Height="NaN">
+                                    <Image x:Name="BackgroundImage" Source="/startbutton.png" Stretch="UniformToFill" Height="208" VerticalAlignment="Top" HorizontalAlignment="Center" Width="300" />
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsEnabled" Value="False">
+                                        <Setter x:Name="StartGamenotenable_png" TargetName="BackgroundImage" Property="Source" Value="/startbuttonnoenable.png"/>
+                                        <Setter TargetName="BackgroundImage" Property="Opacity" Value="0.5"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter x:Name="StartGameover_png" TargetName="BackgroundImage" Property="Source" Value="/startbuttonhover.png"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Background" Value="#FF1C1C1C" />
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="FontSize" Value="14" />
+                    <Setter Property="Padding" Value="10,3,10,3" />
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button Content="" Name="CloseButton" Margin="535,61,0,0" VerticalAlignment="Top" IsCancel="True" Height="48" HorizontalAlignment="Left" Width="47" Click="Close_Click" BorderThickness="0,0,0,0">
+            <Button.Background>
+                <ImageBrush ImageSource="/CloseWindow.png" Stretch="UniformToFill"/>
+            </Button.Background>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <Image x:Name="BackgroundImage" Source="/CloseWindow.png" Stretch="Fill" Height="46" VerticalAlignment="Center" Margin="-3,0,3,0" />
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter x:Name="StartGameover_png" TargetName="BackgroundImage" Property="Source" Value="/CloseWindowHover.png"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Background" Value="#FF1C1C1C" />
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="FontSize" Value="14" />
+                    <Setter Property="Padding" Value="10,3,10,3" />
+                </Style>
+            </Button.Style>
+        </Button>
+        <ProgressBar Name="ProgressLeiste" HorizontalAlignment="Center" Height="5" Margin="0,422,0,0" VerticalAlignment="Top" Width="288" Value="0" Background="#FF0D3237" BorderBrush="Black">
+            <ProgressBar.Foreground>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FF31005B" Offset="0"/>
+                    <GradientStop Color="#FF01F0F5" Offset="1"/>
+                </RadialGradientBrush>
+            </ProgressBar.Foreground>
+        </ProgressBar>
+        <Label Name="Label" Content="" HorizontalAlignment="Center" Margin="0,392,0,0" VerticalAlignment="Top" Width="288" Height="25" Foreground="White"/>
+        <Button x:Name="InstallGame" HorizontalAlignment="Center" Margin="0,298,0,0" VerticalAlignment="Top" Height="109" Width="202" Click="InstallGame_Click"  BorderThickness="0,0,0,0" IsEnabled="True">
+            <Button.Background>
+                <ImageBrush ImageSource="/InstallGame1.png" Stretch="UniformToFill"/>
+            </Button.Background>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Grid Height="NaN" Margin="0,62,0,0">
+                                    <Image x:Name="BackgroundImage" Source="/InstallGame1.png" Stretch="Fill" Height="66" VerticalAlignment="Center" Margin="-38,0,-38,0" Width="NaN" />
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsEnabled" Value="False">
+                                        <Setter x:Name="InstallGame1" TargetName="BackgroundImage" Property="Source" Value="/InstallGame1noenable.png"/>
+                                        <Setter TargetName="BackgroundImage" Property="Opacity" Value="0.5"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter x:Name="StartGameover_png" TargetName="BackgroundImage" Property="Source" Value="/InstallGamehover1.png"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Background" Value="#FF1C1C1C" />
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="FontSize" Value="14" />
+                    <Setter Property="Padding" Value="10,3,10,3" />
+                </Style>
+            </Button.Style>
+
+        </Button>
+        <Button x:Name="FixValheim" HorizontalAlignment="Center" VerticalAlignment="Top" Height="50" Width="212" Click="FixValheim_Click"  BorderThickness="0,0,0,0" IsEnabled="True" Margin="0,357,0,0">
+            <Button.Background>
+                <ImageBrush ImageSource="/FixValheim.png" Stretch="UniformToFill"/>
+            </Button.Background>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Grid>
+                                    <Image x:Name="BackgroundImage" Source="/FixValheim.png" Stretch="Fill" Height="67" VerticalAlignment="Center" Margin="10,0,-92,0" Width="NaN" />
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter x:Name="StartGameover_png" TargetName="BackgroundImage" Property="Source" Value="/FixValheimOver.png"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Background" Value="#FF1C1C1C" />
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="FontSize" Value="14" />
+                    <Setter Property="Padding" Value="10,3,10,3" />
+                </Style>
+            </Button.Style>
+        </Button>
+    </Grid>
+</Window>
